@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+{{ partial "header.html" . }}
+
+<body>
+	<div class="container wrapper list">
+		{{ partial "head.html" . }}
+
+	
+		
+		{{ .Content }}
+		
+			<div class = "exit-button clearfix">
+        <a href="https://docs.google.com/document/d/1T_mcO3wyczVvj8LaRu7nv1F39Zm9wPkXEqcO8Lb2-7Q/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="w3-button w3-green float-right">TODO List</a>
+        <a href="https://docs.google.com/spreadsheets/d/1z83s55WyWN6rO6Bbkc_DBh87nfZLjBB-PyyU3CQ_UVo/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="w3-button w3-blue">Student Goals</a>
+      </div>
+		
+
+    <div class="w3-bar w3-light-gray">
+      {{ range sort .Sections ".Params.weight"}}
+        <button class="w3-bar-item w3-button" onclick="openSection({{ lower (replace .Title " " "-")}})">{{ .Title }}</button>
+      {{ end }}
+    </div>
+    
+      {{ range sort .Sections ".Params.weight"}}
+        
+        <div class = "section-tab" id = {{ lower (replace .Title " " "-")}} style = "display: {{ if eq (lower (replace .Title " " "-")) "1.-prepare"}}inline{{else}}none{{end}}">
+        
+        <h2>{{ .Title }}</h2>
+        
+        {{ .Content }}
+        
+        {{ range sort .Sections ".Params.weight"}}
+        {{ if gt (len .Pages) 0 }}
+          <h4> {{ .Title }}</h4>
+        
+          <div class="grid">
+            {{ range sort .Pages ".Params.level" }}
+              <a href="{{ .Params.ExternalLink | default .RelPermalink }}">
+                <div class="level">
+                  <h4 class = "gt">Level {{ .Params.level }}:</h4>
+                  <h4 class = "lt">{{ .Title }}</h4>
+                </div>
+              </a>
+            {{ end }}
+          </div>
+          {{end}}
+        {{ end }}
+        </div>
+      {{ end }}
+
+		
+<script>
+function openSection(sectionName) {
+  var i;
+  var x = document.getElementsByClassName("section-tab");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  document.getElementById(sectionName).style.display = "block";  
+}
+</script>
+	{{ partial "footer.html" . }}
+</body>
+
+</html>

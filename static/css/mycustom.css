@@ -1,0 +1,76 @@
+/* PEP logo adjustment */
+.header .avatar img {
+
+    border-radius: 0%;
+}
+
+/* Nav colors and behavior */
+nav a {
+  color:#076873;
+}
+nav a:hover {
+    color: #076873;
+    border-bottom: none;
+}
+.site-title a:hover {
+  color: black;
+  border-bottom:none;
+}
+.w3-button a:hover {
+  border-bottom:none;
+}
+
+.w3.button {
+  float: right;
+}
+
+/* set up class grid */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-row-gap: 30px;
+  grid-column-gap: 30px;
+  margin:0 0
+}
+
+/* Remove highlight from grid on hover */
+.grid a:hover {
+  border-bottom: none;
+}
+
+/* level boxes in list grid */
+.level {
+  background: rgba(128, 128, 128, 0.5);
+  height: 150px;
+}
+.level:hover{
+  background-color: rgba(132, 217, 217, 0.5);
+}
+
+
+/* titles in grid */
+.gt{
+  padding: 20px 20px 20px 20px;
+  margin: 0 0 0 0;
+}
+
+/* subtitles in grid */
+.lt{
+  padding: 0px 20px 20px 20px;
+  margin: 0 0 0 0;
+}
+
+/* Used for divs for full pagewidth content */
+.full-width{
+  width: 100vw;
+  position: relative;
+  margin-left: -50vw;
+  left: 50%;
+}
+
+/* Media Queries */
+@media (max-width: 1080px) {
+  .container {
+    margin-left: auto;
+  }
+}

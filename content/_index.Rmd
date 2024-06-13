@@ -1,0 +1,9 @@
+---
+title: Hello
+---
+
+# Welcome {-}
+
+Welcome to the PEP Class 2023. The goal of this class is to prepare students to address questions pertinent to Global Climate Change within the Ocean and Environmental Sciences. The course complements a research internship in the Woods Hole science community by building a foundation of concepts and skills required to be a successful researcher and participant in science-related careers.
+
+![Photo by Matthew Barton, Woods Hole Oceanographic Institution](images/woods_hole_village.jpg)

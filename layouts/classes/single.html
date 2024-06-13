@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+{{ partial "header.html" . }}
+<body>
+	<div class="container wrapper">
+		{{ partial "head.html" . }}
+
+		<div class="post">
+		  <div class = "exit-button clearfix">
+			  
+			  {{ if .Params.level }}  
+      
+              
+      {{ $t := add .Params.level -1}}
+      {{ range where .Parent.Pages ".Params.level" $t}}
+        <a href="{{ .Permalink }}" class="w3-button w3-black">&laquo; Level {{ .Params.level}}</a>
+      {{ end }}
+      
+      {{ $t := add .Params.level 1}}
+      {{ range where .Parent.Pages ".Params.level" $t}}
+        <a href="{{ .Permalink }}" class="w3-button w3-black float-right">Level {{ .Params.level}} &raquo;</a>
+      {{ end }}
+      
+      {{ end }}
+			</div>
+			<div class="post-header">
+				<div class="matter">
+					<h1 class="title">{{ .Parent.Title }}: Level {{ .Params.level }}</h1>
+					<h2 class="subtitle">{{ .Title }}</h2>
+				</div>
+			</div>
+			
+			{{ if eq .Params.level 4}} 
+			  <p><strong>Level 4 work is optional</strong></p>
+			{{ end }}
+			
+			{{ if isset .Params "adv" }}
+			  <p><strong>Advanced Topic Level 3 work is optional</strong></p>
+			  {{ end }}
+			<div class="markdown">
+				{{ .Content }}
+			</div>
+
+			<div class="tags">
+				{{ if ne .Type "page" }}
+					{{ if gt .Params.tags 0 }}
+						<ul class="flat">
+							{{ range .Params.tags }}
+							<li><a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a></li>
+							{{ end }}
+						</ul>
+					{{ end }}
+				{{ end }}
+			</div>
+			
+			{{ if isset .Params "quiz" }}
+			<div class ="exit-button">
+			  <a href="{{ .Params.quiz }}" target="_blank" rel="noopener noreferrer" class = "w3-button w3-blue">{{ if isset .Params "quiz_text"}} {{.Params.quiz_text}} {{ else }} Go to assignment {{ end }}</a>
+			</div>
+			{{ end }}
+			
+			{{ if gt .Params.level 1}}
+			<div class = "exit-button">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSf5xYW1EZ_5_kUTSao5HISEkwwXopmKg_JjwFo_U78NuT76YQ/viewform?usp=sf_link" target="_blank" rel="noopener noreferrer" class="w3-button w3-green">Exit Ticket</a>
+      </div>
+      {{ end }}
+      
+      {{ if .Params.level }}  
+      
+      
+      <div class = "exit-button clearfix">
+              
+        
+        
+        {{ $t := add .Params.level 1}}
+        {{ range where .Parent.Pages ".Params.level" $t}}
+          <a href="{{ .Permalink }}" class="w3-button w3-black float-right">Level {{ .Params.level}} &raquo;</a>
+        {{ end }}
+        
+        {{ $t := add .Params.level -1}}
+          {{ range where .Parent.Pages ".Params.level" $t}}
+            <a href="{{ .Permalink }}" class="w3-button w3-black">&laquo; Level {{ .Params.level}}</a>
+          {{ end }}
+      </div>
+      
+      {{ end }}
+      
+      
+		</div>
+	</div>
+	{{ partial "footer.html" . }}
+</body>
+</html>

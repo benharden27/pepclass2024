@@ -1,0 +1,33 @@
+---
+title: Calendar
+author: Ben Harden
+date: '2021-05-20'
+slug: []
+categories: []
+tags: []
+draft: no
+---
+
+Here are the scheduled class times and other class-adjacent dates:
+
+```{r, echo = F}
+knitr::kable(
+  tibble::tribble(~"Date         ", ~"Time", ~"Details",
+                  "Fri June 14", "2p-5p", "First class: Overview and self-assessment",
+                  "Thurs June 20", "5-7p","Professional Development",
+                  "Mon June 24", "9a-12p","Class",
+                  "Thurs June 27", "5-7p","Class: Professional Development",
+                  "Mon July 1", "9a-12p","Class",
+                  "Mon July 8", "9a-12p","Class: Mid-term presentations",
+                  "Thurs July 11", "5-7p","Class: Professional Development",
+                  "Mon July 15", "9a-12p","Class",
+                  "Thurs July 18", "5-7p","Class: Professional Development",
+                  "Mon July 22", "9a-12p","Class",
+                  "Thurs July 25", "5-7p","Class: Professional Development",
+                  "Mon July 29", "9a-12p","Class",
+                  "Thurs Aug 1", "5-7p","Class: Professional Development",
+                  "Mon Aug 5", "9a-12p","Class",
+                  "Thurs Aug 8", "5-7p","Final Symposium Practice"
+                  )
+)
+```

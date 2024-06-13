@@ -1,0 +1,38 @@
+baseURL: /
+languageCode: en-us
+title: PEP Class 2024
+theme: hugo-ink
+paginate: 5
+copyright: © Woods Hole Partnership Education Program 2024
+pygmentsstyle: vs
+pygmentscodefences: yes
+pygmentscodefencesguesssyntax: yes
+googleAnalytics: UA-123-45
+disqusShortname: ink-demo
+params:
+  avatar: /images/dac-logo-white278x80.png
+  disableDisqusTypes: page
+  featherIconsCDN: yes
+  mode: auto
+  social:
+    - icon: github
+      name: Github
+      url: https://github.com/knadh/hugo-ink
+    - icon: rss
+      name: RSS
+      url: /index.xml
+  subtitle: Ocean and Environmental Sciences
+  customCSS: css/mycustom1.css
+menu:
+  main:
+    - name: About
+      url: /about
+      weight: 1
+    - name: Calendar
+      url: /calendar
+      weight: 3
+    - name: Syllabus
+      url: /docs/PEP2024_syllabus.pdf
+      weight: 7
+taxonomies:
+  tag: tags
