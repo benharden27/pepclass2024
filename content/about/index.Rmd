@@ -8,7 +8,7 @@ tags: []
 draft: no
 ---
 
-The PEP class is built to help prepare you for thework you will be doing this summer and beyond. This includes allowing you to:
+The PEP class is built to help prepare you for the work you will be doing this summer and beyond. This includes allowing you to:
 
 - Build your knowledge and research skills in oceanographic and environmental science topics
 - Understand yourself and the Woods Hole community you are becoming a part of
@@ -52,10 +52,9 @@ We are going to be mostly thinking about skills that we think are going to be mo
 * Reading papers and developing a research bibliography
 * Data visualization through coding
 * Spoken presentation skills
-* Scientific Writing
 * Poster making
 * Broadening understanding of the science undertaken in Woods Hole
-* Scienc storytelling
+* Science storytelling
 
 Each of these topics will come with opportunities for you to show me where where you are and give you new insights to help you develop those skills.
 
