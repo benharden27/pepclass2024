@@ -1,0 +1,36 @@
+---
+title: "Data Design in R"
+author: Ben Harden
+date: '2021-05-05'
+level: 2
+slug: []
+categories: []
+tags: []
+draft: no
+quiz: https://classroom.google.com/c/NjEyOTIyMzMyOTk2/a/NjEyOTIyMzMzMDU4/details
+---
+
+Now that we have a little theory behind us, we're going to look at some of the tools in R that allow us to make figures that will look really good on our poster and other publications.
+
+Again, RStudio has a [nice primer](https://rstudio.cloud/learn/primers/3.8) for how to customize your plots including how to zoom in, add labels, add a theme, and scale your color axis.
+
+You should go through this primer and run the code chunks as you go to make sure you understand it.
+
+## Exercise
+
+Once you've familiarized yourself with the information in the primer above, you should apply these tools to one of your visualizations.
+
+Pick a figure you have made in R and improve it by showing me at least **two** design tools in actions. This could be:
+
+* Adding a theme
+* Adding labels or annotations
+* Zooming in
+* Changing colors
+* Adapting the theme
+* Changing tick locations and labels
+
+Once you have done this, you should submit the following to the assignment below:
+
+* Your script
+* Your figure (can take screen shot or use ggsave() function)
+* A brief description of the changes you made and why you think this improves the design of your figure in relation to what you read in level 1.

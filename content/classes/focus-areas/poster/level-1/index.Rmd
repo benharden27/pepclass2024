@@ -1,0 +1,50 @@
+---
+title: "Poster Design"
+author: Ben Harden
+date: '2021-05-05'
+level: 1
+slug: []
+categories: []
+tags: []
+draft: no
+---
+
+Now that you've got a good sense of your main results and possible text, it's time to think about how you want to present that information in your poster.
+
+Making an effective research poster is not easy, especially for a scientist without any graphic design training. To prepare for the making and presenting of your research posters, we are going to discuss some best practices in graphic design.
+
+To be able to discuss poster design with some theory in mind, I'd like you to read the following resources which talk about graphic design principals:
+
+<https://www.presentationzen.com/chapter6_spread.pdf>
+
+<https://saylordotorg.github.io/text_business-information-systems-design-an-app-for-that/s07-professionalism-in-deliverable.html>
+
+<https://blog.usejournal.com/10-basic-principles-of-graphic-design-b74be0dbdb58>
+
+Please take some notes as you read on points that speak to effective poster design.
+
+In class, we're going to apply some of the design ideas from above to scientific posters more specifically.
+
+Below are some poster examples.
+
+* [Poster 1](posters/poster1.jpg)
+* [Poster 2](posters/poster2.pdf)
+* [Poster 3](posters/poster3.pdf)
+* [Poster 4](posters/poster4.jpg)
+* [Poster 5](posters/poster5.pdf)
+
+We will assign these posters in class to small group discussions where we will think about:
+
+* What is the audience for this poster?
+* How easy was it to get the general message? Why?
+* What design elements were effective?
+* What design elements were ineffective?
+
+FYI - here are a selection of previous PEP posters:
+
+* [Ocean Currents](pep_posters/currents.pdf)
+* [Geology](pep_posters/geology.pdf)
+* [Nutrients](pep_posters/nutrients.pdf)
+* [Phytoplankton](pep_posters/phytoplankton.pdf)
+* [Temperature and Salinity](pep_posters/temp_sal.pdf)
+* [Zooplankton](pep_posters/zooplankton.pdf)

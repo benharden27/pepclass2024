@@ -1,0 +1,146 @@
+---
+title: 'More Plotting Tools'
+author: Ben Harden
+date: '2021-05-05'
+level: 3
+slug: []
+categories: []
+tags: []
+draft: no
+quiz: https://classroom.google.com/c/NjEyOTIyMzMyOTk2/a/NjEzODU0MzU4MDY0/details
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+```
+
+
+This is a chance for you to extend your skills from the simple x-y plotting we saw in level 2.
+
+The [ggplot cheatsheet](https://nyu-cdsc.github.io/learningr/assets/data-visualization-2.1.pdf) is a helpful document to have nearby. It lays out the geoms available to you and has some examples. It also helpfully groups the geoms into their use given the type of data. For example, a scatter plot made with `geom_point` is in the two-variables, x continuous, y continuous section. This means, we have two variables to plot against one another and both axes are numeric and can take any value.
+
+To give you a flavor of some other geoms, you should work your way through the [primers](https://rstudio.cloud/learn/primers/3) for:
+
+* [Bar Charts](https://rstudio.cloud/learn/primers/3.2)
+* [Histograms](https://rstudio.cloud/learn/primers/3.3)
+* [Box Plots and Counts](https://rstudio.cloud/learn/primers/3.4)
+
+## Exercise
+
+You goal in this level is to create multiple plots, experiment with geoms, and add complexity using other aesthetics like color and shape. You should create a new project to experiment in and share your results with me so I can provide feedback and give you an opportunity to revise. Your plotting goals should be guided by your project interests - we can chat if you need input on ideas of what to plot.
+
+## Some ideas
+
+I'm going to go through a few examples of things you could experiment with in creating these plots:
+
+### Set up 
+
+As always, start with activating the packages you're going to need. As a shorthand now I'm just going to load the tidyverse which loads all the contained packages.
+
+```{r}
+library(tidyverse)
+```
+
+### Loading data
+
+I'm going to use a dataset that has multiple CTD profiles in it. You can get this data here: [profiles.csv](profiles.csv).
+
+First, I'll read in the data:
+
+```{r}
+profiles <- read_csv("profiles.csv")
+```
+
+Again, this data will be added to our environment and we can click on it to see the details of the data. If you scroll down, you can see that there are now 5 distinct profiles in this data set with columns the same as in [Level 2](../level-2/):
+
+* Cruise: Unique identifier for the cruise (oceanographic expedition) on which the data was gathered - there are five different cruises in this data
+* Station: Unique station number (i.e. ID of location where the ship stopped to take the measurements)
+* lon: Longitude (decimal degrees east)
+* lat: Latitude (decimal degrees north)
+* z: Depth (m)
+* pres: Pressure (dbar)
+* temp: Temperature (°C)
+* sal: Salinity
+* theta: Potential Temperature (°C) - the temperature the water would be if it was raised to the surface. This accounts for the slight cooling effect of increased pressure
+* sigma: Potential Density (kgm^-^3)  
+
+### Grouping data
+
+This is going to be about plotting multiple similar data on the same plot. To demonstrate this, we can make a similar plot to that which we did in [Level 2](../level-2/), plotting temperature against depth, but this time including all five profiles
+
+```{r}
+ggplot(profiles) +
+  geom_path(aes(temp, z)) +
+  scale_y_reverse()
+```
+
+You can probably see now that there are 5 profiles, but ggplot has tried to join all the ends up to each other to make a continuous data plot. Pretty ugly.
+
+We can get around this in a number of ways. For example, we could use points:
+
+```{r}
+ggplot(profiles) +
+  geom_point(aes(temp, z)) +
+  scale_y_reverse()
+```
+
+But it would be nice to have profiles be more distinct than this. A better solution might be to map the cruise or station name to another aesthetic.
+
+One we can try is the "group" aseethetic which just tells ggplot to treat the whole data set as a bunch of smaller data sets depending on the value of, in our case, Cruise:
+
+```{r}
+ggplot(profiles) +
+  geom_path(aes(temp, z, group = Cruise)) +
+  scale_y_reverse()
+```
+
+Now you can see that each profile is distinct and easy to distinguish from the others. However, an even smarter move might be to make each of them different colors by using the "color" aesthetic.
+
+```{r}
+ggplot(profiles) +
+  geom_path(aes(temp, z, color = Cruise)) +
+  scale_y_reverse()
+```
+
+And look at that! ggplot has even created a handy legend for us so we can tell which is which.
+
+### Adding additional variables
+
+In some cases, you might want to add color in a way that adds a new parameter into the plot. Perhaps if I wanted to plot temperature against depth, but now have the points of the profile be colored according to salinity. I might use the same technique as above, but with different results:
+
+```{r}
+ggplot(profiles) +
+  geom_point(aes(temp, z, color = sal)) +
+  scale_y_reverse()
+```
+
+Its not a great plot, but one thing that I want to note here is that because salinity is a numeric variable, ggplot has mapped it to a color gradient in the legend rather than as discrete colors as it did when we mapped Cruise to color. 
+
+## Other geoms
+
+Some geoms you can work with include creating histograms to look at spread in data. In the example below, I've made a stacked histogram.
+
+```{r}
+ggplot(profiles) +
+  geom_histogram(aes(temp, fill = Cruise), binwidth = 2) 
+```
+But you can also put the bars next to each other using:
+
+```{r}
+ggplot(profiles) +
+  geom_histogram(aes(temp, fill = Cruise),
+                 position = "dodge", binwidth = 2) 
+```
+As you saw in the primers above, we can also look at statistical spread of data in boxplots:
+
+```{r}
+ggplot(profiles) +
+  geom_boxplot(aes(Cruise, temp)) 
+```
+And we can always experiment with scatter plots of data plotting one variable against another, potentially with another variable as color too or a discrete value as shape. Or both:
+
+```{r}
+ggplot(profiles) +
+  geom_point(aes(sal,temp, color = sigma, shape = Cruise)) 
+```
+

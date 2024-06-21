@@ -1,0 +1,168 @@
+---
+title: 'Advanced Design'
+author: Ben Harden
+date: '2021-05-05'
+level: 3
+slug: []
+categories: []
+tags: []
+draft: no
+quiz: https://classroom.google.com/c/NjEyOTIyMzMyOTk2/a/NjEyOTIyMzMzMDU5/details
+---
+
+<script src="{{< blogdown/postref >}}index_files/header-attrs/header-attrs.js"></script>
+
+
+<p>This level will introduce to a couple of advanced tools that will be helpful in designing your plots. Specifically, how to make multiple panels and how to customize your theme.</p>
+<p>You should follow along with the examples and then pick one to implement for yourself.</p>
+<div id="creating-multiple-panels" class="section level2">
+<h2>Creating multiple panels</h2>
+<p>ggplot has a lot of really good tools that help make plots easily. However, one quirk is that given the set up it’s a little hard to create plots with multiple panels in a flexible way.</p>
+<p>In the example we’re going to look at, we have many variables recorded over time and look at how we can plot them as sub-panels on top of each other so that it’s easier to compare how the peaks and troughs align. There are two ways to achieve this particular goal: one internal to ggplot and the other using a package called <a href="https://wilkelab.org/cowplot/articles/introduction.html">cowplot</a>. We’re going to look at both below.</p>
+<p>We’re going to use <a href="C282_hourly_data.csv">hourly recorded surface data</a> from a cruise from Woods Hole, MA to Grenada. The columns we are going to focus on are:</p>
+<ul>
+<li>dttm: Date and time of measurement</li>
+<li>temp: Surface ocean temperature</li>
+<li>sal: Surface ocean salinity</li>
+<li>wind_sp: Local wind speed</li>
+</ul>
+<p>I’m going to load this data in now:</p>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──</code></pre>
+<pre><code>## ✓ ggplot2 3.3.3     ✓ purrr   0.3.4
+## ✓ tibble  3.1.0     ✓ dplyr   1.0.5
+## ✓ tidyr   1.1.3     ✓ stringr 1.4.0
+## ✓ readr   1.4.0     ✓ forcats 0.5.1</code></pre>
+<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code>df &lt;- read_csv(&quot;C282_hourly_data.csv&quot;)</code></pre>
+<pre><code>## 
+## ── Column specification ────────────────────────────────────────────────────────
+## cols(
+##   dttm = col_datetime(format = &quot;&quot;),
+##   lon = col_double(),
+##   lat = col_double(),
+##   temp = col_double(),
+##   sal = col_double(),
+##   fluor = col_logical(),
+##   wind_sp = col_double(),
+##   wind_dir = col_double()
+## )</code></pre>
+<div id="option-1-making-sub-panels-using-ggplot-and-pivot_longer" class="section level3">
+<h3>Option 1: Making sub-panels using ggplot and pivot_longer</h3>
+<p>The function ‘pivot_longer()’ is a data wrangling tool that takes data in multiple columns and condenses them into just two columns: one with the value in and the other with the column name. All you need to do is give the function a list of the columns you want to use:</p>
+<p>For example:</p>
+<pre class="r"><code>select(df, c(dttm, temp, sal, wind_sp))</code></pre>
+<pre><code>## # A tibble: 807 x 4
+##    dttm                     temp   sal wind_sp
+##    &lt;dttm&gt;                  &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;
+##  1 2018-10-15 12:05:22.000  18.1  31.8    10.1
+##  2 2018-10-15 13:05:22.000  17.7  31.9    14.7
+##  3 2018-10-15 14:05:22.000  17.9  31.8    16.4
+##  4 2018-10-15 15:05:22.000  18.2  31.8    22.5
+##  5 2018-10-15 16:05:22.000  18.2  31.8    20.1
+##  6 2018-10-15 17:05:22.000  18.3  31.7    23.0
+##  7 2018-10-15 18:05:22.000  18.3  31.7    21.6
+##  8 2018-10-15 19:05:22.000  18.0  31.4    20.3
+##  9 2018-10-15 20:05:22.000  18.4  31.3    27.2
+## 10 2018-10-15 21:05:22.000  18.2  31.0    23.8
+## # … with 797 more rows</code></pre>
+<pre class="r"><code>pivot_longer(df, c(temp, sal, wind_sp)) %&gt;%
+  select(c(dttm, name, value))</code></pre>
+<pre><code>## # A tibble: 2,421 x 3
+##    dttm                    name    value
+##    &lt;dttm&gt;                  &lt;chr&gt;   &lt;dbl&gt;
+##  1 2018-10-15 12:05:22.000 temp     18.1
+##  2 2018-10-15 12:05:22.000 sal      31.8
+##  3 2018-10-15 12:05:22.000 wind_sp  10.1
+##  4 2018-10-15 13:05:22.000 temp     17.7
+##  5 2018-10-15 13:05:22.000 sal      31.9
+##  6 2018-10-15 13:05:22.000 wind_sp  14.7
+##  7 2018-10-15 14:05:22.000 temp     17.9
+##  8 2018-10-15 14:05:22.000 sal      31.8
+##  9 2018-10-15 14:05:22.000 wind_sp  16.4
+## 10 2018-10-15 15:05:22.000 temp     18.2
+## # … with 2,411 more rows</code></pre>
+<p>It’s the same data in each case, but just rearranged in the second case so that all the data is in one column and we have another column which tells us what kind of data it is. It might look odd and honestly it is, but it helps ggplot to make plots for you in panels using the <code>facet_wrap()</code> function.</p>
+<p><em>btw, if you haven’t come across the <code>%&gt;%</code> notation, it’s called a “pipe” and it just means take the output of the thing I just did and put it into the next function as the first argument. So in the following example, I’m creating a new data frame by using <code>pivot_longer()</code> on df and then putting that data frame into ggplot (note that the ggplot function doesn’t have a data argument as a result)</em></p>
+<pre class="r"><code>pivot_longer(df, c(temp, sal, wind_sp)) %&gt;%
+  ggplot(aes(dttm, value)) +
+  geom_point() +
+  facet_wrap(~name)</code></pre>
+<pre><code>## Warning: Removed 396 rows containing missing values (geom_point).</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><code>facet_wrap()</code> can also be told how many rows or columns to wrap into.</p>
+<pre class="r"><code>pivot_longer(df, c(temp, sal, wind_sp)) %&gt;%
+  ggplot(aes(dttm, value)) +
+  geom_point() +
+  facet_wrap(~name, ncol = 1)</code></pre>
+<pre><code>## Warning: Removed 396 rows containing missing values (geom_point).</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>You’ll also notice that the y axes are also set the same between plots. This works OK with this particular data, but if one data set had a range of 100-200 and another 1-2 then the plot would be very hard to interpret. We can decouple the y axes using an additional argument.</p>
+<pre class="r"><code>p &lt;- pivot_longer(df, c(temp, sal, wind_sp)) %&gt;%
+  ggplot(aes(dttm, value)) +
+  geom_point() +
+  facet_wrap(~name, ncol = 1, scales = &quot;free_y&quot;)
+
+p</code></pre>
+<pre><code>## Warning: Removed 396 rows containing missing values (geom_point).</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+</div>
+<div id="option-2-cowplot" class="section level3">
+<h3>Option 2: Cowplot</h3>
+<p>Cowplot is a library that allows you to arrange individual ggplot objects and is perhaps a little easier than the method above. You can read more about it <a href="https://wilkelab.org/cowplot/articles/introduction.html">here</a>.</p>
+<p>In cowplot, you create your objects and then arrange them in a grid. For example, the same plot as above would be achieved like this:</p>
+<pre class="r"><code>library(cowplot)
+
+base &lt;- ggplot(df, aes(x = dttm)) + labs(x = NULL)
+
+p1 &lt;- base + geom_point(aes(y = temp))
+p2 &lt;- base + geom_point(aes(y = sal))
+p3 &lt;- base + geom_point(aes(y = wind_sp))
+
+plot_grid(p1, p2, p3, ncol = 1)</code></pre>
+<pre><code>## Warning: Removed 198 rows containing missing values (geom_point).
+
+## Warning: Removed 198 rows containing missing values (geom_point).</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>Could certainly be seen as much easier. The only issue I’ve come across with <code>cowplot</code> is that it treats each plot independently so if there is some difference in, for example, the plot placement of the y axis then the figures wont quite be aligned. It may be that this is not an issue for your plots.</p>
+</div>
+<div id="custom-themes" class="section level3">
+<h3>Custom Themes</h3>
+<p>The <a href="https://rstudio.cloud/learn/primers/3.8">Themes Primer</a> that we worked on in <a href="../level-2/">level 2</a> talks about the themes that are available to you out of the box such as <code>theme_bw()</code>, <code>theme_dark()</code>, etc.</p>
+<p>As an example:</p>
+<pre class="r"><code>p + 
+  theme_minimal()</code></pre>
+<pre><code>## Warning: Removed 396 rows containing missing values (geom_point).</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>These themes have been designed and scrutinized by someone so that they meet their goals for making clear, comprehensible plots. Many of them are very good (and there are many more in the <code>ggthemes</code> package).</p>
+<p>However, if you really wanted to have control of all of the plotting elements, ggplot provides you with the tools to do just that. It is all contained in the <code>theme()</code> function - I am often going in to the help file (<code>?theme</code>) to work out just what everything does in there.</p>
+<p>The key thing to remember when changing a theme is that most elements in the plot will fall into one of three categories</p>
+<ul>
+<li>Text: axis text, legend text, titles, etc.</li>
+<li>Lines: axis line, grid line, axis ticks, etc.</li>
+<li>Rectangles: legend box, plot background</li>
+</ul>
+<p>To set each of these you need to specify the corresponding <code>element_*</code> function (<code>element_text()</code>, <code>element_line()</code>, <code>element_rect()</code>) which allows you to set all the properties of the corresponding shape. Finally, if you want to get rid of something altogether you use `element_blank()’</p>
+<p>As an example, I often pick a theme that I mostly like and then modify the things I want to be slightly different. Let’s use <code>theme_bw()</code> as our basis as shown here:</p>
+<pre class="r"><code># Original plot with theme_bw()
+p + 
+  theme_bw()</code></pre>
+<pre><code>## Warning: Removed 396 rows containing missing values (geom_point).</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p>We’ll now add some modifications. <em>NOTE: Not all of the below ideas will likely constitute good design choices, but I wanted to give you examples of a range of possibilities.</em></p>
+<pre class="r"><code># My modified theme_bw() plot
+p +
+  theme_bw() +
+  theme(panel.border = element_blank(), # Remove line around whole plot panel
+        axis.line = element_line(size = .5, color = &quot;grey50&quot;),  # Add in more muted axis lines
+        panel.background = element_rect(fill = &quot;darkseagreen1&quot;), # add a background color
+        panel.grid.minor = element_blank(), # remove all minor grid lines
+        panel.grid.major = element_line(color = &quot;grey50&quot;), # match major grid lines to axis color
+        legend.text = element_text(size = 14), # make legend labels bigger 
+        )</code></pre>
+<pre><code>## Warning: Removed 396 rows containing missing values (geom_point).</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+</div>
+</div>

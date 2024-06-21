@@ -1,0 +1,22 @@
+---
+title: Todo List
+author: Ben Harden
+date: '2023-06-04'
+slug: []
+categories: []
+tags: []
+draft: no
+---
+
+Here is the todo list from the most recent classes:
+
+## Class: Fri June 14
+
+1. Complete your self-assessment using the [Skills Rubric](/docs/pep2024_rubric.pdf). Discuss this with your mentor to help you determine which focus areas you want to work on.
+1. Complete this ["Getting to Know you" survey](https://docs.google.com/forms/d/e/1FAIpQLSdqKHCQmCD4S640-ayeZ0jZiGce4K_ITpHUlEygV_fz6FZ1cQ/viewform?usp=sf_link)
+
+1. Get a research paper from your mentor and complete the following short exercise using the resources on the [classes](/classes) page as needed:
+
+* Decide on the reason you are reading this research paper
+* Tell me which paper sections you therefor are focusing your energy
+* Describe in a few sentences what you learnt in relation to your reason for reading

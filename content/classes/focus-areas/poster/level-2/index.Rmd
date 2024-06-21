@@ -1,0 +1,64 @@
+---
+title: 'Creating a Research Poster'
+author: Ben Harden
+date: '2021-05-05'
+level: 2
+slug: []
+categories: []
+tags: []
+draft: no
+quiz: https://classroom.google.com/c/NjEyOTIyMzMyOTk2/a/NjEyOTIyMzMzMDYy/details
+---
+
+Your goal is to produce a scientific poster to present to your peers and invited members of the PEP community, which tells us about the research your group has conducted in the past two weeks.
+
+## Some Resources
+
+Now that we've discussed some general best practices in design and talked specifically about research posters, there are a few resources that might be useful for you to read/watch:
+
+* Intro to making a poster: Review of ideas already discussed
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/AwMFhyH7_5g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+* This [Poster Design tutorial](https://www.makesigns.com/tutorials/) had some really great resources for helping you design your poster.
+
+* My intro to creating poster infrastructure in Google Slides:
+
+<div style="padding:75% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/566595935?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="2021-06-23 09-41-15.mp4"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+
+Note: I made a mistake in this video when placing the vertical column spacers - I was 0.5 inches off. Values should have been 15.67, 16.67, 31.33, 32.33. I have included the template I created in this walkthrough below - feel free to make a copy of it as a starting point or use the ideas in the video about to build your own poster infrastructure
+
+[Poster Infrastucture Template]( https://docs.google.com/presentation/d/13RG1GJtSif4B6zqFiQMgpcVxKSSBs2QK5LyzmajWIQM/edit?usp=sharing)
+
+* Alternative Powerpoint Poster walkthrough: Step-by-step guide to design tools - also applies to Google Slides
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/_WnhoIbfcoM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## Building your poster
+
+You should work with your team to build your poster. Be sure to start with content that you drafted in your [Poster Content Document](../../02-poster-text/level-2/) and then move towards more design-like components. It's all too easy to go the other way and start designing too much before you have a sense of how your writing, pictures and figures will fit in.
+
+You should anticipate going through at least one draft before your final poster. I am available to review at any stage in the process, but please send me files sooner rather than later to ensure timely feedback
+
+You should submit your final poster to Google Classroom on June 30th by 12pm ahead of the poster session at 10am on Friday July 1st. This will give me time to print them.
+
+
+## Some Best Practices
+
+Some criteria to keep in mind when making your poster:
+
+-	*Software*: Can use PowerPoint or Google Slides. Let me know if you need any pointers. Some people may already have templates for a scientific poster.
+-	*Size*: Aim for a 48x36 inch poster (set this in “page setup” if using PowerPoint)
+-	*Title*: Make this nice and large (> 80 pt font) and make it a good concise descriptor of your work. Title Case, not all UPPER CASE.
+-	*Authors*: Include your names and institutions. Consider using your institutions logos and PEP’s logo as well.
+-	*Text*: Consider that less is more throughout the poster. Write concisely; use bullets as necessary to make clean points. Body text should be at least 24pt for readability, this will give you a clear indication of how little text you can actually fit on the page. Zoom in to 100% and stand back from the screen if you are unsure of sizing.
+-	*Organization*: Organize sections with suitable titles. Can be, i.e. Introduction, Study region, Hypotheses, Methods, etc., but can also be more descriptive to help tell you story. Make it easy for the eye to follow the order of these. Space is your friend and will help the poster be more readable – you don’t have to cram things in.
+-	*Figures/Image*: Images can often do much more work than words so use them to your advantage. They should be good quality/high resolution images. Zoom in (to 100% magnification) to check that they are looking good and aren’t pixilated. All figures need captions (~18pt) and citations if you have taken them from another source. Think about maps, images of organisms you are studying, images of gear that was used to gather the data, data distribution figures, etc. Help the reader see what you did. Make sure you don’t distort image perspective by dragging size unevenly. Use annotations on figures to make your ideas clear if necessary. Simplify the information you show in any one figure.
+-	*Colors*: Need to be careful about readability and contrast. Keep it simple. Don’t use busy backgrounds. Use strong colors to highlight, not for broad areas. ensure good contrast for readability. Maybe use a color selector like [Adobe Color](https://color.adobe.com/create) to find a palette. Try and match (or compliment) your palette between figures and poster design in general. Consider color-blind viewers.
+-	*Fonts:* Typical advice is sans-serif for titles and serifs for text. Don’t justify text in text-box, as the typical widths of the boxes will make this look weird and will make it harder to read. 
+- *Alignment*: Make sure elements are lined up, consistently sized and evenly spaced. There are many tools in PowerPoint and Slides for this. You can enter in values for widths, etc. to ensure they are exactly the same.
+- *Non-data ink*: Applies to poster design too - think carefully about using boxes around text. Only use ink that serves a purpose. If in doubt, remove it and see if the poster still works. *A designer knows he has achieved perfection not when there is nothing left to add, but when there is nothing left to take away* - Antoine de Saint-Exupéry
+-	*References*: Include list of citations at end of post for any references you refer to in the text.
+-	*Acknowledgments*: Induce a list of folks that you would like to thank who helped with this work.
+
+

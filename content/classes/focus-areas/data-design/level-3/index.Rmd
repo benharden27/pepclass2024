@@ -1,0 +1,146 @@
+---
+title: 'Advanced Design'
+author: Ben Harden
+date: '2021-05-05'
+level: 3
+slug: []
+categories: []
+tags: []
+draft: no
+quiz: https://classroom.google.com/c/NjEyOTIyMzMyOTk2/a/NjEyOTIyMzMzMDU5/details
+---
+
+This level will introduce to a couple of advanced tools that will be helpful in designing your plots. Specifically, how to make multiple panels and how to customize your theme.
+
+You should follow along with the examples and then pick one to implement for yourself.
+
+## Creating multiple panels
+
+ggplot has a lot of really good tools that help make plots easily. However, one quirk is that given the set up it's a little hard to create plots with multiple panels in a flexible way.
+
+In the example we're going to look at, we have many variables recorded over time and look at how we can plot them as sub-panels on top of each other so that it's easier to compare how the peaks and troughs align. There are two ways to achieve this particular goal: one internal to ggplot and the other using a package called [cowplot](https://wilkelab.org/cowplot/articles/introduction.html). We're going to look at both below.
+
+We're going to use [hourly recorded surface data](C282_hourly_data.csv) from a cruise from Woods Hole, MA to Grenada. The columns we are going to focus on are:
+
+* dttm: Date and time of measurement
+* temp: Surface ocean temperature
+* sal: Surface ocean salinity
+* wind_sp: Local wind speed
+
+I'm going to load this data in now:
+
+```{r}
+library(tidyverse)
+df <- read_csv("C282_hourly_data.csv")
+```
+
+### Option 1: Making sub-panels using ggplot and pivot_longer
+
+The function 'pivot_longer()' is a data wrangling tool that takes data in multiple columns and condenses them into just two columns: one with the value in and the other with the column name. All you need to do is give the function a list of the columns you want to use:
+
+For example:
+
+```{r}
+select(df, c(dttm, temp, sal, wind_sp))
+
+pivot_longer(df, c(temp, sal, wind_sp)) %>%
+  select(c(dttm, name, value))
+```
+
+It's the same data in each case, but just rearranged in the second case so that all the data is in one column and we have another column which tells us what kind of data it is. It might look odd and honestly it is, but it helps ggplot to make plots for you in panels using the `facet_wrap()` function.
+
+*btw, if you haven't come across the `%>%` notation, it's called a "pipe" and it just means take the output of the thing I just did and put it into the next function as the first argument. So in the following example, I'm creating a new data frame by using `pivot_longer()` on df and then putting that data frame into ggplot (note that the ggplot function doesn't have a data argument as a result)*
+
+```{r}
+pivot_longer(df, c(temp, sal, wind_sp)) %>%
+  ggplot(aes(dttm, value)) +
+  geom_point() +
+  facet_wrap(~name)
+```
+
+`facet_wrap()` can also be told how many rows or columns to wrap into.
+
+```{r}
+pivot_longer(df, c(temp, sal, wind_sp)) %>%
+  ggplot(aes(dttm, value)) +
+  geom_point() +
+  facet_wrap(~name, ncol = 1)
+```
+
+You'll also notice that the y axes are also set the same between plots. This works OK with this particular data, but if one data set had a range of 100-200 and another 1-2 then the plot would be very hard to interpret. We can decouple the y axes using an additional argument.
+
+```{r}
+p <- pivot_longer(df, c(temp, sal, wind_sp)) %>%
+  ggplot(aes(dttm, value)) +
+  geom_point() +
+  facet_wrap(~name, ncol = 1, scales = "free_y")
+
+p
+```
+
+### Option 2: Cowplot
+
+Cowplot is a library that allows you to arrange individual ggplot objects and is perhaps a little easier than the method above. You can read more about it [here](https://wilkelab.org/cowplot/articles/introduction.html).
+
+In cowplot, you create your objects and then arrange them in a grid. For example, the same plot as above would be achieved like this:
+
+```{r}
+library(cowplot)
+
+base <- ggplot(df, aes(x = dttm)) + labs(x = NULL)
+
+p1 <- base + geom_point(aes(y = temp))
+p2 <- base + geom_point(aes(y = sal))
+p3 <- base + geom_point(aes(y = wind_sp))
+
+plot_grid(p1, p2, p3, ncol = 1)
+```
+
+Could certainly be seen as much easier. The only issue I've come across with `cowplot` is that it treats each plot independently so if there is some difference in, for example, the plot placement of the y axis then the figures wont quite be aligned. It may be that this is not an issue for your plots.
+
+### Custom Themes
+
+The [Themes Primer](https://rstudio.cloud/learn/primers/3.8) that we worked on in [level 2](../level-2/) talks about the themes that are available to you out of the box such as `theme_bw()`, `theme_dark()`, etc.
+
+As an example:
+
+```{r}
+p + 
+  theme_minimal()
+```
+
+These themes have been designed and scrutinized by someone so that they meet their goals for making clear, comprehensible plots. Many of them are very good (and there are many more in the `ggthemes` package). 
+
+However, if you really wanted to have control of all of the plotting elements, ggplot provides you with the tools to do just that. It is all contained in the `theme()` function - I am often going in to the help file (`?theme`) to work out just what everything does in there.
+
+The key thing to remember when changing a theme is that most elements in the plot will fall into one of three categories
+
+* Text: axis text, legend text, titles, etc.
+* Lines: axis line, grid line, axis ticks, etc.
+* Rectangles: legend box, plot background
+
+To set each of these you need to specify the corresponding `element_*` function (`element_text()`, `element_line()`, `element_rect()`) which allows you to set all the properties of the corresponding shape. Finally, if you want to get rid of something altogether you use `element_blank()'
+
+As an example, I often pick a theme that I mostly like and then modify the things I want to be slightly different. Let's use `theme_bw()` as our basis as shown here:
+
+```{r}
+# Original plot with theme_bw()
+p + 
+  theme_bw()
+```
+
+We'll now add some modifications. *NOTE: Not all of the below ideas will likely constitute good design choices, but I wanted to give you examples of a range of possibilities.* 
+
+```{r}
+# My modified theme_bw() plot
+p +
+  theme_bw() +
+  theme(panel.border = element_blank(), # Remove line around whole plot panel
+        axis.line = element_line(size = .5, color = "grey50"),  # Add in more muted axis lines
+        panel.background = element_rect(fill = "darkseagreen1"), # add a background color
+        panel.grid.minor = element_blank(), # remove all minor grid lines
+        panel.grid.major = element_line(color = "grey50"), # match major grid lines to axis color
+        legend.text = element_text(size = 14), # make legend labels bigger 
+        )
+```
+

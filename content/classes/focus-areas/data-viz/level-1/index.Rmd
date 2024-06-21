@@ -1,0 +1,109 @@
+---
+title: "Intro to coding and R"
+author: Ben Harden
+date: '2021-05-05'
+level: 1
+slug: []
+categories: []
+tags: []
+draft: no
+---
+
+For our data exploration and visualization work, we are going to use a programming language called R. R is a very popular tool for working with data in sciences and is a one-stop-shop for work from data input and organization, to graphics and web presentations. In fact this whole website was build within R. There is a lot to it and it can feel overwhelming at first so hold tight if you've never done any of this kind of work before.
+
+## What is R and why use it?
+
+R is a programming language. That means it's a piece of computer software that can interpret written commands and execute them in sequence to do a specific task such as, in our case, read in data and create a figure. There are many many programming languages out there, most with a specific goal in mind. HTML, which makes websites, is one example. You may have heard of others (or may be using them in your upcoming projects) such as python, MATLAB, java, fortran...
+
+The main contrast to using something like R is to use Excel. I'm assuming most of you have used this to look at data. Excel is a very visual way to work with data and make plots, and is pretty easy to learn, but this usability comes at a price:
+
+* In Excel, the interface is point-and-click meaning you select data using your mouse and then select actions from a toolbar. This can be really easy to learn, but is limited because it's hard to record what you have done to your data or indeed do exactly the same thing again another time. R allows you to write scripts which automates this process and makes it reproducible
+
+* In Excel, you work on a sheet and manipulate the data directly. This can result in you accidentally removing data, editing it without being able to undo, or otherwise create a mess wherein the original data becomes a new version with no documentation or ability for someone else to reproduce what you've done. 
+
+* Excel is also not free so we limit our ability to collaborate and interact with the world by keeping the analysis behind a paywall. This has changed a little with the advent of Google Sheets, but the compatibility is still not perfect.
+
+Dr. Rob Schlegel (from the Woods Hole Oceanographic Institution) sums up nicely why using R is a good idea for data science as part of his R workshop.
+
+Please read [section 1.3 of this guide](https://robwschlegel.github.io/Intro_R_Workshop/prelim.html#why-use-r).
+
+## Setting up R
+
+Most people couple the language R with a user interface called RStudio - this is a point-and-click program that takes the simplicity and user-friendly nature of those features to make the coding part easier.
+
+For this class we are going to need to download both R (the language) and RStudio (the user interface) to our computers.
+
+### Installing R
+
+* Go to http://www.r-project.org/, and in the "Getting Started" box, click on “download R.” Find a site of your choice. (The ones at Berkeley and UCLA are closest to us, but you can use any of them.) 
+* Click to go to that site.
+* Click on your operating system (Windows, MAC, Linux) and follow directions.
+* *If Windows, click on "base" and then on Download R 4.2.0 for Windows. (Note that 3.4.1 is the current version as this is being written, but use whatever shows up as current.) You may need to save the file "R-3.4.1-win.exe" and then click on it to execute it. When the dialog box opens, click "RUN." A Setup Wizard should appear. Keep clicking "Next" (or change features if you understand them), until it is finished. You should now see an icon on your desktop, with a large capital “R.”*
+
+### Installing R Studio
+
+Go to http://www.rstudio.com, click on “Download RStudio” and follow the directions for your operating system.
+
+
+## R Familiarization
+
+Now that we know a little about R and why we might want to use it, it's time to learn some of the basics. If you've never used R or RStudio before it's worth a little bit of orientation.
+
+You can get some basics on how to use R from [this tutorial](https://rstudio.cloud/learn/primers/1.2). Watch the videos and run the interactive code chunks to learn some of the basics.
+
+Then watch this video to orient yourself to the RStudio Interface
+
+<iframe width="100%" height = "500" src="https://www.youtube.com/embed/cnQ-v1UUWyE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+### Scripting
+
+The final part of the video above talks about scripting. I like to think of scripts as a little like recipes. You lay out the ingredients and logical steps someone (or future you!) would need to follow in order to get a particular, reproducible outcome. In this case, it's R that is going to follow your script to do a particular analysis or make a plot.
+
+Writing commands in the console is a little like cooking on the fly with whatever you have to hand. Sometimes that's the right way to make a meal (or play with data). Most times though, you're going to want to make a script to record what you've done.
+
+Below is a quick video intro to making a script.
+
+<iframe title="vimeo-player" src="https://player.vimeo.com/video/557632079" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+
+## RStudio Projects and Packages
+
+Finally some notes on Project and Packages
+
+### Projects
+
+When using RStudio it's useful to organize your work in an RStudio Projects. A Project creates a folder where you can store all your data, code and figures in one place. It is more organized and actually makes some of the coding easier, especially reading in data. 
+
+To open a new project, go to "File" and then "New Project". When the popup window appears select "New Directory" and then "New Project". You'll then be asked to choose the name of your project and where the project should exist on your computer. 
+
+Once you've done that you're project will be set up and will automatically load in R.
+
+### Packages
+
+Many pieces of code that you will want to run will rely on packages. Packages in R are a selection of add-on functions - code that has been written by an R user that they think would be helpful enough to others that they have "packaged" it up and made it available.
+
+For this class we just need one package called "tidyverse" (technically a package or a few different packages), which contains some popular functions that help users work with and plot data. Tidyverse does not come pre-installed in R so you will need to do this.
+
+Open RStudio and enter the following in the console:
+
+```{r, eval = F}
+install.packages("tidyverse")
+```
+
+A bunch of red text will show up for a while as R downloads and installs the packages, but once you're done with this you shouldn't have to run this command again.
+
+## Test your understanding
+
+To test your understanding, you should use what you've heard above to do the following:
+
+1. Create a new project
+1. Open a new script file and save it with the name "test_script.R"
+1. Use this script to record the steps you would take to do the following:
+
+  * Make a new object which is a vector of the numbers 1, 3, 5, 8, 11, 20
+  * Extract the 3rd value in this vector
+  * Find the mean and range of this vector
+  * Make a new object which is your original object multiplied by 10
+
+Dont forget to comment your lines of code so you know what each line does
+
+Once you're done, you can check your work against [this example script](Viz_L1_example.R)

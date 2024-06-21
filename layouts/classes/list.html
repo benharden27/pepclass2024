@@ -10,10 +10,6 @@
 		
 		{{ .Content }}
 		
-			<div class = "exit-button clearfix">
-        <a href="https://docs.google.com/document/d/1T_mcO3wyczVvj8LaRu7nv1F39Zm9wPkXEqcO8Lb2-7Q/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="w3-button w3-green float-right">TODO List</a>
-        <a href="https://docs.google.com/spreadsheets/d/1z83s55WyWN6rO6Bbkc_DBh87nfZLjBB-PyyU3CQ_UVo/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="w3-button w3-blue">Student Goals</a>
-      </div>
 		
 
     <div class="w3-bar w3-light-gray">
@@ -24,7 +20,7 @@
     
       {{ range sort .Sections ".Params.weight"}}
         
-        <div class = "section-tab" id = {{ lower (replace .Title " " "-")}} style = "display: {{ if eq (lower (replace .Title " " "-")) "1.-prepare"}}inline{{else}}none{{end}}">
+        <div class = "section-tab" id = {{ lower (replace .Title " " "-")}} style = "display: {{ if eq (lower (replace .Title " " "-")) "focus-areas"}}inline{{else}}none{{end}}">
         
         <h2>{{ .Title }}</h2>
         

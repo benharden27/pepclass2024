@@ -28,11 +28,20 @@ menu:
     - name: About
       url: /about
       weight: 1
+    - name: Classes
+      url: /classes
+      weight: 2
     - name: Calendar
       url: /calendar
       weight: 3
+    - name: Skills Rubric
+      url: /docs/pep2024_rubric.pdf
+      weight: 4
     - name: Syllabus
       url: /docs/PEP2024_syllabus.pdf
       weight: 7
+    - name: TODO
+      url: /todo
+      weight: 10
 taxonomies:
   tag: tags
