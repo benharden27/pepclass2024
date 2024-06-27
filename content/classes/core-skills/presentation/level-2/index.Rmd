@@ -7,15 +7,9 @@ slug: []
 categories: []
 tags: []
 draft: no
-quiz: https://classroom.google.com/c/NjEyOTIyMzMyOTk2/a/NjEyOTIyMzMzMDQz/details
 ---
 
-Your goal in Level 2 to is to deliver a solid research introduction presentation that organizes ideas from broad context to specific regional details and builds towards clear questions that you are hoping to answer. Again, your class project presentation is a group effort with each presenter taking 2-3 mins for a maximum of 8 mins. Your talk should cover the following:
-
-* Key scientific and regional background information
-* What is known and not known about your topic
-* What question(s) you will be seeking to answer
-* What you research plan is for answering those questions
+Your goal in Level 2 to is to deliver a solid research introduction presentation that organizes ideas from broad context to specific regional details and builds towards clear questions that you are hoping to answer.
 
 ## Level 2 Expectations
 
@@ -27,7 +21,7 @@ For a Level 2 presentation, I'm expecting to see:
   + What an extreme wind event is
   + How they form and how frequent they are
   + Where they typically strike in New England
-  * What region we are going to look at specifically
+  + What region we are going to look at specifically
   + How we are going to measure them
   + What questions we are going to try and answer
   

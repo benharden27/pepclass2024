@@ -7,7 +7,6 @@ slug: []
 categories: []
 tags: []
 draft: no
-quiz: https://classroom.google.com/c/NjEyOTIyMzMyOTk2/a/NjEyOTIyMzMzMDQy/details
 ---
 
 Now that you have the basic elements of a introductory talk down, it's time to get creative and build a presentation that really sparkles.
@@ -30,17 +29,14 @@ You can read more descriptions of these plots in [this article](https://www.how-
 
 We can also imagine stories not just as a series of happenings to and decisions by a protagonist, but also in terms of the emotional highs and lows explicit in the story. 
 
-Kurt Vonnegut  popularized the idea that we can think about the shapes of stories. Watch the short lecture below where he describes this theory.
+Kurt Vonnegut popularized the idea that we can think about the shapes of stories. Watch the short lecture below where he describes this theory.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/oP3c1h8v2ZQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 In addition, [this article](https://www.theatlantic.com/technology/archive/2016/07/the-six-main-arcs-in-storytelling-identified-by-a-computer/490733/) in The Atlantic summarizes [this paper](The_emotional_arcs_of_stories_are_dominated_by_six.pdf) wherein the author's tried to quantify the theories of story shape laid out by Kurt Vonnegut and come to pretty similar conclusions.
 
-### Applying these ideas to your presentation
-
 One of the key takeaways about storytelling is that stories are successful when people care about how they turn out. For your presentation, this means centering the "why should I care?" statement. Think about the importance of your topic and put that front and center to build your story around. This could involve starting our with a real world story about the impact of your topic, or it could involve setting up the stakes early about what might happen if we don't fully understand a process in the ocean.
 
-Whatever you think, you should come up with a written (or drawn) story structure for your presentation, submit it to Google Classroom at the link below, and come see me so we can discuss it and give you the opportunity to revise it.
 
 ## 2. Improved slides
 
@@ -56,10 +52,6 @@ Specifically, to scientific slide design, here are some other thoughts that migh
 
 https://www.drppt.org/5-tips-science-presentation-slide-design/
 https://www.northwestern.edu/climb/resources/oral-communication-skills/designing-PowerPoint-slides.html
-
-### Applying these ideas to your presentation
-
-Absorb these sources and design a few slides of your presentation to incorporate some of the best practices in design and messaging. Submit this to the Google Classroom assignment below and we will take a look at these together and revise towards a final presentation.
 
 
 ## 3. Confident, engaging delivery
@@ -79,7 +71,3 @@ Other than personal experimentation, one possible way to find out what your styl
 <div style="max-width:854px"><div style="position:relative;height:0;padding-bottom:56.25%"><iframe src="https://embed.ted.com/talks/lang/en/bilal_bomani_plant_fuels_that_could_power_a_jet" width="854" height="480" style="position:absolute;left:0;top:0;width:100%;height:100%" frameborder="0" scrolling="no" allowfullscreen></iframe></div></div>
 
 <div style="max-width:854px"><div style="position:relative;height:0;padding-bottom:56.25%"><iframe src="https://embed.ted.com/talks/lang/en/heidi_m_sosik_the_discoveries_awaiting_us_in_the_ocean_s_twilight_zone" width="854" height="480" style="position:absolute;left:0;top:0;width:100%;height:100%" frameborder="0" scrolling="no" allowfullscreen></iframe></div></div>
-
-### Appying these ideas to your presentation
-
-Once you've had a chance to think about what aspects of your presentational style you would like to work on, you should make a list of at least three things that you want to try to do. Submit this list to the Google Classroom assignment below and we will work together to implement them.

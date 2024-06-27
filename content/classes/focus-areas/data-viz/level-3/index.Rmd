@@ -6,8 +6,7 @@ level: 3
 slug: []
 categories: []
 tags: []
-draft: no
-quiz: https://classroom.google.com/c/NjEyOTIyMzMyOTk2/a/NjEzODU0MzU4MDY0/details
+draft: yes
 ---
 
 ```{r setup, include=FALSE}
