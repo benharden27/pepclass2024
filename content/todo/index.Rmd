@@ -11,6 +11,19 @@ draft: no
 Here is the todo list from the most recent classes:
 
 
+## Class: Mon June 31
+
+1. Log on to the [class Google Classroom](https://classroom.google.com/c/NjgxMDE4NDM5Mzky?cjc=k2upqgn) - this will help me organize your submissions for various things you are doing.
+
+1. Complete [Level 1 of the intro to R](/classes/focus-areas/data-viz/level-1) and submit to the [Google Classroom assignment](https://classroom.google.com/c/NjgxMDE4NDM5Mzky?cjc=k2upqgn) (link on the level 1 page too). Let me know if you need additional input - if you are still having trouble, that is fine, I'll check in with you during the next class.
+
+1. Read the content on the following pages
+
++ [Level 1: Data Design](/classes/focus-areas/data-design/level-1)
++ [Level 1: Research Poster](/classes/focus-areas/poster/level-1) 
+
+There is a good amount of overlap between these two readings as they are both essentially about design so I thought we'd cover them at the same time. We'll be doing some discussions about the content in these at the start of next class so make sure you're familiar with these ideas. 
+
 ## Class: Mon June 24
 
 You have two things to do this week - get you presentations ready and prepare some work for thinking about using R for data visualization.

@@ -1,5 +1,5 @@
 ---
 title: "Data Design"
 weight: 3
-draft: yes
+draft: no
 ---

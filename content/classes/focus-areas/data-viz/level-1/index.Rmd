@@ -7,6 +7,7 @@ slug: []
 categories: []
 tags: []
 draft: no
+quiz: https://classroom.google.com/c/NjgxMDE4NDM5Mzky/a/Njk3ODg3MTk3NTA1/details
 ---
 
 For our data exploration and visualization work, we are going to use a programming language called R. R is a very popular tool for working with data in sciences and is a one-stop-shop for work from data input and organization, to graphics and web presentations. In fact this whole website was build within R. There is a lot to it and it can feel overwhelming at first so hold tight if you've never done any of this kind of work before.
