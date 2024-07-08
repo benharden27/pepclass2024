@@ -6,8 +6,7 @@ level: 3
 slug: []
 categories: []
 tags: []
-draft: yes
-quiz: https://classroom.google.com/c/NjEyOTIyMzMyOTk2/a/NjEyOTIyMzMzMDM5/details
+draft: no
 ---
 
 You've got the point where you can search for and extract information from papers. On this level we're going to take our understanding a little deeper by connecting and synthesizing your bibliography.
