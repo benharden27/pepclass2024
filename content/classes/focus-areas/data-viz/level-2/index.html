@@ -6,54 +6,33 @@ level: 2
 slug: []
 categories: []
 tags: []
-draft: yes
+draft: no
 
 ---
 
 <script src="{{< blogdown/postref >}}index_files/header-attrs/header-attrs.js"></script>
 
 
-<p>In Level 2 we’re going to look at how to read in data and make some basic plots.</p>
-<div id="reading-data" class="section level3">
-<h3>Reading Data</h3>
-<p>If you’ve used Excel before, you’ll be pretty familiar with the spreadsheet layout of data where we have rows and columns. Many datasets you’ll be working with in R are also organized in the same way. R calls them data frames.</p>
-<div class="figure">
-<img src="tidy_1.png" alt="" />
-<p class="caption">Values are stored at intersection of rows (obserations) and columns (variables)</p>
+<p>This is a chance for you to extend your skills from the simple x-y plotting we saw in level 1.</p>
+<p>The <a href="https://nyu-cdsc.github.io/learningr/assets/data-visualization-2.1.pdf">ggplot cheatsheet</a> is a helpful document to have nearby. It lays out the geoms available to you and has some examples. It also helpfully groups the geoms into their use given the type of data. For example, a scatter plot made with <code>geom_point</code> is in the two-variables, x continuous, y continuous section. This means, we have two variables to plot against one another and both axes are numeric and can take any value.</p>
+<div id="exercise" class="section level2">
+<h2>Exercise</h2>
+<p>You goal in this level is to create multiple plots, experiment with geoms, and add complexity using other aesthetics like color and shape. You should create a new project to experiment in and share your results with me so I can provide feedback and give you an opportunity to revise. Your plotting goals should be guided by your project interests - we can chat if you need input on ideas of what to plot.</p>
 </div>
-<p>Watch this brief intro to importing data into a data frame in R, and how it differs from using data in Excel.</p>
-<div style="padding:75% 0 0 0;position:relative;">
-<iframe src="https://player.vimeo.com/video/555320284?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Sequence 01.mov">
-</iframe>
+<div id="some-ideas" class="section level2">
+<h2>Some ideas</h2>
+<p>I’m going to go through a few examples of things you could experiment with in creating these plots:</p>
+<div id="set-up" class="section level3">
+<h3>Set up</h3>
+<p>As always, start with activating the packages you’re going to need. As a shorthand now I’m just going to load the tidyverse which loads all the contained packages.</p>
+<pre class="r"><code>library(tidyverse)</code></pre>
 </div>
-<script src="https://player.vimeo.com/api/player.js"></script>
-</div>
-<div id="plotting-data" class="section level2">
-<h2>Plotting Data</h2>
-<p>The tool we are going to be using is the ggplot package. It’s a powerful and flexible way to make graphics and it used widely by scientists analyzing data.</p>
-<p>You should also go through <a href="https://rstudio.cloud/learn/primers/1.1">this primer</a> on visualization in R using ggplot. It includes interactive code chunks for you to try out the ideas as you go.</p>
-</div>
-<div id="a-walk-through" class="section level2">
-<h2>A Walk-through</h2>
-<p>We’re now going to apply your ggplot intro skills to a real ocean data set. Specifically, we’re going to look at some ocean CTD profiles as this kind of data is going to be relevent to many of your projects.</p>
-<p>We are going to be using data from a single CTD profile, You can download the data here: <a href="SR04.csv">SR04.csv</a>.</p>
-<div id="activating-packages" class="section level3">
-<h3>Activating packages</h3>
-<p>So far, we’ve come across two packages: readr (the package we used to read in our csv file) and ggplot (to make plots). We are going to need both for this exercise because we are now going to be both reading and plotting data. Both come in the tidyverse package, but you need to activate them at the top of your script.</p>
-<p>So make sure your script starts with the following:</p>
-<pre class="r"><code>library(readr)
-library(ggplot2)</code></pre>
-</div>
-<div id="reading-in-data" class="section level3">
-<h3>Reading in Data</h3>
-<p>The data should be placed in your project folder so that it is easy for the code to find. We will then read in the data using the <code>read_csv()</code> function.</p>
-<pre class="r"><code>profile &lt;- read_csv(&quot;SR04.csv&quot;)</code></pre>
-<p>The object <code>profile</code> is now a data frame containing the data in <code>SR04.csv</code>. It should be available to you in the environment panel where you can click on it to see it in spreadsheet format.</p>
-<p>Some things to note about the data from a quick-look:</p>
-<ul>
-<li><p>The data is already tidy - each row is an observation and each column is a variable.</p></li>
-<li><p>The rows are observations at particular depths (z)</p></li>
-<li><p>The columns have relatively self-explanatory headings, but we always need the metadata that tells us what each is specifically. In our case:</p>
+<div id="loading-data" class="section level3">
+<h3>Loading data</h3>
+<p>I’m going to use a dataset that has multiple CTD profiles in it. You can get this data here: <a href="profiles.csv">profiles.csv</a>.</p>
+<p>First, I’ll read in the data:</p>
+<pre class="r"><code>profiles &lt;- read_csv(&quot;profiles.csv&quot;)</code></pre>
+<p>Again, this data will be added to our environment and we can click on it to see the details of the data. If you scroll down, you can see that there are now 5 distinct profiles in this data set with columns the same as in <a href="../level-2/">Level 2</a>:</p>
 <ul>
 <li>Cruise: Unique identifier for the cruise (oceanographic expedition) on which the data was gathered - there are five different cruises in this data</li>
 <li>Station: Unique station number (i.e. ID of location where the ship stopped to take the measurements)</li>
@@ -65,61 +44,61 @@ library(ggplot2)</code></pre>
 <li>sal: Salinity</li>
 <li>theta: Potential Temperature (°C) - the temperature the water would be if it was raised to the surface. This accounts for the slight cooling effect of increased pressure</li>
 <li>sigma: Potential Density (kgm<sup>-</sup>3)</li>
-</ul></li>
 </ul>
 </div>
-<div id="plotting" class="section level3">
-<h3>Plotting</h3>
-<p>Recall from what you’ve already seen that we create a simple ggplot using the following template:</p>
-<pre class="r"><code>ggplot(data = &lt;DATA&gt;) + 
-  &lt;GEOM_FUNCTION&gt;(mapping = aes(&lt;MAPPINGS&gt;))</code></pre>
-<p>Where we will need to specify three things:</p>
-<ol style="list-style-type: decimal">
-<li><code>&lt;DATA&gt;</code> The data frame used to make the plot</li>
-<li><code>&lt;MAPPINGS&gt;</code> The mapping of variables to aesthetics - what variable you want to put on thew x axis, y axis, color axis, etc.</li>
-<li>‘<GEOM_FUNCTION>’ A geom to represent these aesthetics - how will this look? (points? lines?)</li>
-</ol>
-<p>So, as a first example, we can plot the temperature data over depth in the following way:</p>
-<pre class="r"><code>ggplot(data = profile) +
-  geom_line(aes(x = z, y = temp))</code></pre>
-<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
-<p>Where we have specified that:</p>
-<ol style="list-style-type: decimal">
-<li>Our data is contained in the data frame, <code>profile</code></li>
-<li>We want to map depth (z) to position along the x axis and temperature (temp) to position along the y axis</li>
-<li>We want the representation to be a line <code>geom_line()</code></li>
-</ol>
-<p><em>ASIDE: This is the most verbose way I can write this. Verbose in coding means more explicit or using-lots-of-typing. I have used <code>data = profiles</code>, <code>x = dttm</code> and <code>y = temp</code>. As with many functions in R, both <code>ggplot()</code> and <code>aes()</code> are expecting certain inputs and instead of officially declaring them, you can just write them in the right order. The above code could be written more succinctly as:</em></p>
-<pre class="r"><code>ggplot(profile) +
-  geom_line(aes(z, temp))</code></pre>
-<p><em>We’ve lost something in the ability for us to directly interpret what is being assigned to what, but we’re saving our fingers in the long run. It’s up to you which makes more sense to you at this point.</em></p>
-<p>The above figure is what you would plot from a traditional science perspective - the independent variable (z) is on the x axis and the dependent variable (temperature) is on the y axis. However, from an oceanography perspective, it makes more sense to have depth be on the y axis and temperature on the x axis. Like this (flipping the positon of z and temp):</p>
-<pre class="r"><code>ggplot(profile) +
-  geom_line(aes(temp, z))</code></pre>
-<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
-<p>Uh oh. What a mess. What’s happening here? ggplot actually has two geoms that can draw lines. We’ve been using <code>geom_line()</code> so far, but underneath the hood, this function actually sorts the y variable along the x axis. This can be useful in many cases were data is not sorted already, but in our case it means that the nice sweeping curve gets deconstructed. For our purposes, we’re going to want to use <code>geom_path()</code> which joins the data up in the order they appear in the data set.</p>
-<pre class="r"><code>ggplot(profile) +
-  geom_path(aes(temp, z))</code></pre>
-<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
-<p>The last thing we’re going to do to fit with oceanographic norms is to flip the y axis. This will make depth be greater the further you go down the plot.</p>
-<p>Doing this in ggplot requires us to use one of the <code>scale_*</code> functions. These functions basically say: <em>Take the mapping we’ve already set up in out ggplot and adjust how the data is mapped</em>. This includes telling ggplot what range of values to map to our x axis, whether we want a log axis, what colors to map our data to, and, in our case, what direction to plot the data in. We’ll talk more about the <code>scale_*</code> functions in Level 3 if you are interested.</p>
-<pre class="r"><code>ggplot(profile) +
+<div id="grouping-data" class="section level3">
+<h3>Grouping data</h3>
+<p>This is going to be about plotting multiple similar data on the same plot. To demonstrate this, we can make a similar plot to that which we did in <a href="../level-2/">Level 2</a>, plotting temperature against depth, but this time including all five profiles</p>
+<pre class="r"><code>ggplot(profiles) +
   geom_path(aes(temp, z)) +
   scale_y_reverse()</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>You can probably see now that there are 5 profiles, but ggplot has tried to join all the ends up to each other to make a continuous data plot. Pretty ugly.</p>
+<p>We can get around this in a number of ways. For example, we could use points:</p>
+<pre class="r"><code>ggplot(profiles) +
+  geom_point(aes(temp, z)) +
+  scale_y_reverse()</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>But it would be nice to have profiles be more distinct than this. A better solution might be to map the cruise or station name to another aesthetic.</p>
+<p>One we can try is the “group” aseethetic which just tells ggplot to treat the whole data set as a bunch of smaller data sets depending on the value of, in our case, Cruise:</p>
+<pre class="r"><code>ggplot(profiles) +
+  geom_path(aes(temp, z, group = Cruise)) +
+  scale_y_reverse()</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>Now you can see that each profile is distinct and easy to distinguish from the others. However, an even smarter move might be to make each of them different colors by using the “color” aesthetic.</p>
+<pre class="r"><code>ggplot(profiles) +
+  geom_path(aes(temp, z, color = Cruise)) +
+  scale_y_reverse()</code></pre>
 <p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
-<p>So now we have an intuitive way to look at the data. The temperature is around -1.8°C at the surface (top) and increases to a maximum of 2°C at around 300 m before slowly cooling again as you head deeper.</p>
-<p>I’ve zipped a <a href="Viz_L2_example.zip">project file here</a> that contains the data and the code you would need to run the above visualization. Unzip the folder and double-click on the Viz_L2_example.Rproj file to open this project in RStudio.</p>
+<p>And look at that! ggplot has even created a handy legend for us so we can tell which is which.</p>
+</div>
+<div id="adding-additional-variables" class="section level3">
+<h3>Adding additional variables</h3>
+<p>In some cases, you might want to add color in a way that adds a new parameter into the plot. Perhaps if I wanted to plot temperature against depth, but now have the points of the profile be colored according to salinity. I might use the same technique as above, but with different results:</p>
+<pre class="r"><code>ggplot(profiles) +
+  geom_point(aes(temp, z, color = sal)) +
+  scale_y_reverse()</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>Its not a great plot, but one thing that I want to note here is that because salinity is a numeric variable, ggplot has mapped it to a color gradient in the legend rather than as discrete colors as it did when we mapped Cruise to color.</p>
 </div>
 </div>
-<div id="exercise" class="section level2">
-<h2>Exercise</h2>
-<p>Working together as a group, our goal is to help each of you able to read in data from our cruise and make some basic plots to analyze. The above tools and walk-through gives you a good starting point, but there are probably many diverging goals and we will have to work some things out as we go.</p>
-<p>To get signed off at Level 2, you will need to be able to show me an RStudio project that contains the data and a script that:</p>
-<ul>
-<li>Activates the appropriate libraries</li>
-<li>Loads in at least one of the cruise datasets</li>
-<li>Makes at least one plot with relevant axes and an appropriate geoms</li>
-<li>Has comments that describe what each section of code is doing</li>
-</ul>
-<p>I can come see this on your computer or you can zip the project folder and submit to the assignment on Google Classroom below.</p>
+<div id="other-geoms" class="section level2">
+<h2>Other geoms</h2>
+<p>Some geoms you can work with include creating histograms to look at spread in data. In the example below, I’ve made a stacked histogram.</p>
+<pre class="r"><code>ggplot(profiles) +
+  geom_histogram(aes(temp, fill = Cruise), binwidth = 2) </code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-8-1.png" width="672" />
+But you can also put the bars next to each other using:</p>
+<pre class="r"><code>ggplot(profiles) +
+  geom_histogram(aes(temp, fill = Cruise),
+                 position = &quot;dodge&quot;, binwidth = 2) </code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-9-1.png" width="672" />
+As you saw in the primers above, we can also look at statistical spread of data in boxplots:</p>
+<pre class="r"><code>ggplot(profiles) +
+  geom_boxplot(aes(Cruise, temp)) </code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-10-1.png" width="672" />
+And we can always experiment with scatter plots of data plotting one variable against another, potentially with another variable as color too or a discrete value as shape. Or both:</p>
+<pre class="r"><code>ggplot(profiles) +
+  geom_point(aes(sal,temp, color = sigma, shape = Cruise)) </code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 </div>
