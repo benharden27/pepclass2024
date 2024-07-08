@@ -20,3 +20,20 @@ To be able to discuss poster design with some theory in mind, I'd like you to re
 Please take some notes as you read on points that speak to effective poster design.
 
 In class, we're going to apply some of the design ideas from above to scientific posters more specifically.
+
+## Classwork
+
+Below are some poster examples.
+
+* [Poster 1](posters/poster1.jpg)
+* [Poster 2](posters/poster2.pdf)
+* [Poster 3](posters/poster3.pdf)
+* [Poster 4](posters/poster4.jpg)
+* [Poster 5](posters/poster5.pdf)
+
+We will assign these posters in class to small group discussions where we will think about:
+
+* What is the audience for this poster?
+* How easy was it to get the general message? Why?
+* What design elements were effective?
+* What design elements were ineffective?
