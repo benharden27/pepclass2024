@@ -13,6 +13,8 @@ Here is the todo list from the most recent classes:
 
 ## Class: Mon July 8
 
+1. Redesign a figure from a research paper you've read as described in [Level 1 of Data Design](/classes/focus-areas/data-design/level-1)
+
 1. Reading for the final focus area topic on Storytelling. Go to [Level 1](/classes/focus-areas/storytelling/level-1), read the required sections of the document there and complete the short reflection. We will be sharing these reflections at the start of the next class.
 
 1. Its time to confirm what your focus area goals are going to be - look for a DM from me so we can make a provisional plan to confirm during class on Monday.
