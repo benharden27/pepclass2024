@@ -42,6 +42,34 @@ There is a lot going on in this figure. They are trying to show three different 
 
 In class we are going to analyse this figure and redesign it.
 
+### Figure Analysis
+
+I'm going to give my opinions in this figure here. First, let's discuss some of the effective techniques in this plot:
+
+* The plot is designed in black and white making it accessible to people with colorblindness or who lack color printing equipment.
+
+* The panel is not cluttered with lots of grid lines.
+
+* The legend is clear with regards to what each line should be which.
+
+* The font is appropriately sized and very easy to read.
+
+Now, lets discuss some of the limitations:
+
+* The distinction between the light and dark lines which denote the inbound and outbound transects is not distinct (or requires a good amount of work to determine),
+
+* The author has chosen to put all three variables on one plotting panel leading to three independent y axes. You often see plots with two y axes, but this goes one further. One of the limitations on having two y axis is that you often have to create the same number of tick-marks on each axis for symmetry (and certainly if you want to use horizontal grid lines). In this case with three y axis, the left axis ticks are all double-labeled with both the density and temperature values they represent. This provides a barrier to simple interpretation.
+
+* I think there's too much ink around the figure - I don't think we need the complete box around the panel nor do the intermediate ticks marks on the x-axis help locate where we are in distance when looking at the lines in the middle of the panel (in fact, I find it hard lining up the top and bottom x-axis tick marks because they are so closely spaced)
+
+* The use of the different line types for each property works for much of the plot, but it gets confusing when they are in close proximity.
+
+### Figure Redesign
+
+The goal of this figure is to communicate how the different properties change and co-vary as you move away from the coast. Below is my redesigned figure.
+
+![](figure_redesign.png)
+
 ## Assignment
 
 It's time for you to give this a go and follow the above example.
