@@ -1,109 +1,23 @@
 ---
-title: 'More Plotting Tools'
+title: 'More R Tools'
 author: Ben Harden
 date: '2021-05-05'
 level: 3
 slug: []
 categories: []
 tags: []
-draft: yes
+draft: no
 ---
 
 <script src="{{< blogdown/postref >}}index_files/header-attrs/header-attrs.js"></script>
 
 
-<p>This is a chance for you to extend your skills from the simple x-y plotting we saw in level 2.</p>
-<p>The <a href="https://nyu-cdsc.github.io/learningr/assets/data-visualization-2.1.pdf">ggplot cheatsheet</a> is a helpful document to have nearby. It lays out the geoms available to you and has some examples. It also helpfully groups the geoms into their use given the type of data. For example, a scatter plot made with <code>geom_point</code> is in the two-variables, x continuous, y continuous section. This means, we have two variables to plot against one another and both axes are numeric and can take any value.</p>
-<p>To give you a flavor of some other geoms, you should work your way through the <a href="https://rstudio.cloud/learn/primers/3">primers</a> for:</p>
+<p>Now that you’re familiar with a few different R tools for plotting well formatted data, you can push your skills forward in many directions.</p>
+<p>You should look into the following R skills and decide which might be interesting to add to your data visualization toolkit</p>
 <ul>
-<li><a href="https://rstudio.cloud/learn/primers/3.2">Bar Charts</a></li>
-<li><a href="https://rstudio.cloud/learn/primers/3.3">Histograms</a></li>
-<li><a href="https://rstudio.cloud/learn/primers/3.4">Box Plots and Counts</a></li>
+<li><p><a href="https://r4ds.hadley.nz/data-tidy">Processing data</a>: Learn how to create tidy data from poorly formatted data or data from an <a href="https://r4ds.hadley.nz/spreadsheets">Excel spreadsheet</a>. Almost all data that you will be given at some point will need some processing and tidying to make it usable with ggplot so you’ll need to have some of these. You may also need to know how to manipulate words (<a href="https://r4ds.hadley.nz/strings">string</a>) in data too.</p></li>
+<li><p><a href="https://r4ds.hadley.nz/quarto">Reporting data in Quatro</a>(previously RMarkdown): This is a way to combine your code, figures and text in one document. I use it make pdfs, presentations and even this website.</p></li>
+<li><p><a href="https://rstudio.github.io/leaflet/">Creating web maps using leaflet</a>: I use this a bunch for making data rich websites (e.g. as the basis for <a href="https://seaplasticviz.netlify.app/plastic-vis/">this plastics data maps</a>) and it’s just a fun tool to play with</p></li>
+<li><p><a href="https://shiny.posit.co/">Interactive visualizations with shiny</a>: Also an interesting tool more for communication than anything else, but will help you understand how visualizations can be used to help people explore a topic.</p></li>
+<li><p><a href="https://r4ds.hadley.nz/">Other things?</a>: This book is full of ways that you can move your R work forward. Take a quick look at the contents on the left to see if anything stands out to you.</p></li>
 </ul>
-<div id="exercise" class="section level2">
-<h2>Exercise</h2>
-<p>You goal in this level is to create multiple plots, experiment with geoms, and add complexity using other aesthetics like color and shape. You should create a new project to experiment in and share your results with me so I can provide feedback and give you an opportunity to revise. Your plotting goals should be guided by your project interests - we can chat if you need input on ideas of what to plot.</p>
-</div>
-<div id="some-ideas" class="section level2">
-<h2>Some ideas</h2>
-<p>I’m going to go through a few examples of things you could experiment with in creating these plots:</p>
-<div id="set-up" class="section level3">
-<h3>Set up</h3>
-<p>As always, start with activating the packages you’re going to need. As a shorthand now I’m just going to load the tidyverse which loads all the contained packages.</p>
-<pre class="r"><code>library(tidyverse)</code></pre>
-</div>
-<div id="loading-data" class="section level3">
-<h3>Loading data</h3>
-<p>I’m going to use a dataset that has multiple CTD profiles in it. You can get this data here: <a href="profiles.csv">profiles.csv</a>.</p>
-<p>First, I’ll read in the data:</p>
-<pre class="r"><code>profiles &lt;- read_csv(&quot;profiles.csv&quot;)</code></pre>
-<p>Again, this data will be added to our environment and we can click on it to see the details of the data. If you scroll down, you can see that there are now 5 distinct profiles in this data set with columns the same as in <a href="../level-2/">Level 2</a>:</p>
-<ul>
-<li>Cruise: Unique identifier for the cruise (oceanographic expedition) on which the data was gathered - there are five different cruises in this data</li>
-<li>Station: Unique station number (i.e. ID of location where the ship stopped to take the measurements)</li>
-<li>lon: Longitude (decimal degrees east)</li>
-<li>lat: Latitude (decimal degrees north)</li>
-<li>z: Depth (m)</li>
-<li>pres: Pressure (dbar)</li>
-<li>temp: Temperature (°C)</li>
-<li>sal: Salinity</li>
-<li>theta: Potential Temperature (°C) - the temperature the water would be if it was raised to the surface. This accounts for the slight cooling effect of increased pressure</li>
-<li>sigma: Potential Density (kgm<sup>-</sup>3)</li>
-</ul>
-</div>
-<div id="grouping-data" class="section level3">
-<h3>Grouping data</h3>
-<p>This is going to be about plotting multiple similar data on the same plot. To demonstrate this, we can make a similar plot to that which we did in <a href="../level-2/">Level 2</a>, plotting temperature against depth, but this time including all five profiles</p>
-<pre class="r"><code>ggplot(profiles) +
-  geom_path(aes(temp, z)) +
-  scale_y_reverse()</code></pre>
-<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
-<p>You can probably see now that there are 5 profiles, but ggplot has tried to join all the ends up to each other to make a continuous data plot. Pretty ugly.</p>
-<p>We can get around this in a number of ways. For example, we could use points:</p>
-<pre class="r"><code>ggplot(profiles) +
-  geom_point(aes(temp, z)) +
-  scale_y_reverse()</code></pre>
-<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
-<p>But it would be nice to have profiles be more distinct than this. A better solution might be to map the cruise or station name to another aesthetic.</p>
-<p>One we can try is the “group” aseethetic which just tells ggplot to treat the whole data set as a bunch of smaller data sets depending on the value of, in our case, Cruise:</p>
-<pre class="r"><code>ggplot(profiles) +
-  geom_path(aes(temp, z, group = Cruise)) +
-  scale_y_reverse()</code></pre>
-<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
-<p>Now you can see that each profile is distinct and easy to distinguish from the others. However, an even smarter move might be to make each of them different colors by using the “color” aesthetic.</p>
-<pre class="r"><code>ggplot(profiles) +
-  geom_path(aes(temp, z, color = Cruise)) +
-  scale_y_reverse()</code></pre>
-<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
-<p>And look at that! ggplot has even created a handy legend for us so we can tell which is which.</p>
-</div>
-<div id="adding-additional-variables" class="section level3">
-<h3>Adding additional variables</h3>
-<p>In some cases, you might want to add color in a way that adds a new parameter into the plot. Perhaps if I wanted to plot temperature against depth, but now have the points of the profile be colored according to salinity. I might use the same technique as above, but with different results:</p>
-<pre class="r"><code>ggplot(profiles) +
-  geom_point(aes(temp, z, color = sal)) +
-  scale_y_reverse()</code></pre>
-<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
-<p>Its not a great plot, but one thing that I want to note here is that because salinity is a numeric variable, ggplot has mapped it to a color gradient in the legend rather than as discrete colors as it did when we mapped Cruise to color.</p>
-</div>
-</div>
-<div id="other-geoms" class="section level2">
-<h2>Other geoms</h2>
-<p>Some geoms you can work with include creating histograms to look at spread in data. In the example below, I’ve made a stacked histogram.</p>
-<pre class="r"><code>ggplot(profiles) +
-  geom_histogram(aes(temp, fill = Cruise), binwidth = 2) </code></pre>
-<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-8-1.png" width="672" />
-But you can also put the bars next to each other using:</p>
-<pre class="r"><code>ggplot(profiles) +
-  geom_histogram(aes(temp, fill = Cruise),
-                 position = &quot;dodge&quot;, binwidth = 2) </code></pre>
-<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-9-1.png" width="672" />
-As you saw in the primers above, we can also look at statistical spread of data in boxplots:</p>
-<pre class="r"><code>ggplot(profiles) +
-  geom_boxplot(aes(Cruise, temp)) </code></pre>
-<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-10-1.png" width="672" />
-And we can always experiment with scatter plots of data plotting one variable against another, potentially with another variable as color too or a discrete value as shape. Or both:</p>
-<pre class="r"><code>ggplot(profiles) +
-  geom_point(aes(sal,temp, color = sigma, shape = Cruise)) </code></pre>
-<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
-</div>
