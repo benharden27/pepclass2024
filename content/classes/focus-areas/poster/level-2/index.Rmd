@@ -6,8 +6,7 @@ level: 2
 slug: []
 categories: []
 tags: []
-draft: yes
-quiz: https://classroom.google.com/c/NjEyOTIyMzMyOTk2/a/NjEyOTIyMzMzMDYy/details
+draft: no
 ---
 
 Your goal is to produce a scientific poster to present to your peers and invited members of the PEP community, which tells us about the research your group has conducted in the past two weeks.

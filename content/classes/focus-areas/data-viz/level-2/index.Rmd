@@ -1,5 +1,4 @@
 ---
-title: 'Plotting more properties in R'
 author: Ben Harden
 date: '2021-05-05'
 level: 2
