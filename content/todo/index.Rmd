@@ -10,6 +10,12 @@ draft: no
 
 Here is the todo list from the most recent classes:
 
+## Class: Mon July 15
+
+1. Look for the DMs on Slack about your personal class project - I should have given you all some idea of what I am look for you to have completed by the next class (Mon July 22). We will use some of the class time to review where you are at and set goals for next week. We have about three weeks to work on these projects and getting a little bit done each week and getting feedback from me will help you build those skills
+
+1. Complete the [R level 1](/classes/focus-areas/data-viz/level-1) and [Data Design Level 1](/classes/focus-areas/data-design/level-1) if you haven't already
+
 
 ## Class: Mon July 8
 
