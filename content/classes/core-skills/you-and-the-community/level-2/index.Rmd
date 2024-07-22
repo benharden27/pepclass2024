@@ -1,0 +1,29 @@
+---
+title: 'Contact Email'
+author: Ben Harden
+date: '2021-05-05'
+level: 2
+slug: []
+categories: []
+tags: []
+draft: no
+---
+
+You'll have probably tired of hearing at this point that to move forward in a science or science-adjactent career, it's all about meeting people and exploring opportunities that are presented. One way to ensure that you get a chance to explore new horizons and maximize the opportunities that come your way is to practice reaching out to people in field you find interesting.
+
+For this level, you are going to write an email to someone that you have met briefly (or are interested in meeting) in Woods Hole. This could include:
+
+* Someone you've read papers from who is in your field
+* Someone who has given a talk in the PEP class
+* Someone who has given a talk in your department or other space in Woods Hole
+* Someone in a field in Woods Hole that you think sounds interesting
+* Anyone else that you think is interesting
+
+We will discuss in class how you will go about this email, but some general pointers we will look at include:
+
+* Tell them clearly who you are, where you're at in your science journey, and what your interests are
+* Do your research - if it's someone who you've read papers from then be sure to note down what you thought was novel/interesting in their work. Also note down any questions you have about their results.
+* Be clear about what you are asking for - is it a chance to find out more about their work? Is it some specific answers to questions you are posing? Is it to have them comment on something you're producing?
+* Be honest and genuine in your enthusiasm for what they do and relate it to your past work.
+
+You should write your email and then bcc me so that I can see who you wrote to and what you said so I can offer feedback.

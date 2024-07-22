@@ -1,0 +1,63 @@
+---
+title: 'Writing your PEP abstract'
+author: Ben Harden
+date: '2021-05-05'
+level: 2
+slug: []
+categories: []
+tags: []
+draft: no
+---
+
+Your goal to complete Level 2 is to draft ypur PEP abstract. For some of you that will feel like good timing as you hone in on your final results. For others it might feel too soon as many of your results are still on their way. Either way, it's good practice to write about your research and in the case of an abstract for a scientific conference, you often write it months ahead of time and may not fully have your scientific story completed.
+
+The deadline for abstract submission for PEP is 5pm on Fri August 2nd. To be able to give me (and your mentor) time to look over what you've written I am expecting an abstract draft submission by 9pm on Sunday July 28th. I will then get you feedback in the early part of the week and you will have a chance to talk about it with your mentor too.
+
+## Abstract Guidelines 
+
+Abstracts must include sufficient information for readers to understand the nature and significance of the topic, the adequacy of the investigative strategy, the nature of the results, and the conclusions. The abstract should summarize the substantive results of the work and not merely list topics to be discussed. 
+
+Abstracts highlight major points of your research and explain why your work is important; what your purpose was, how you went about your project, what you learned, and what you concluded.
+
+An abstract is an outline summary of your whole project. It should have an intro, body, and conclusion. It is a well-developed paragraph, should be exact in wording, and must be understandable to a audience beyond those directly in your scientific field. 
+
+Abstracts should be no more than 300 words, formatted in Microsoft Word, single-spaced, using size Times New Roman font. 
+
+If your title includes scientific notation, Greek letters, bold, italics, or other special characters/symbols, do make sure they appear correctly. 
+
+List all additional co-authors, as applicable, such as mentors. 
+
+### Example Abstract 1
+
+Researcher: Jessica McLaughlin, University of Rhode Island 
+
+Mentor: Anna Michel, Woods Hole Oceanographic Institution 
+
+Presentation Title: A Water Sampling System 
+
+Abstract: Acquiring multiple water samples in harsh or remote environments can be a tedious  and difficult feat. With the advancements of underwater vehicles, researchers have furthered  their understanding of these locations. Through the development of the “Sipper” system, small  robotic platforms will be able to autonomously capture water samples. In order to rapidly prototype the Sipper, individual components were first modeled in SolidWorks. This enabled the  visualization of the design that included an intake filter to prevent clogging, a pump to maintain  water flow into the system, push-connect fittings to create a manifold, and five solenoid valves.  The manifold routes water into five different channels where the in-line solenoids control which  unit the water flows into at different times. An Arduino Uno is used to control all of the  components and programming the sampling interval. The Sipper pumps five individual water  samples into half-liter IV bags. Testing was completed without a robotic platform, however, in  the future by packaging the Sipper it will be deployable on small field vehicles. With a fill time  under 30 seconds for each bag, this cost-effective system could be adapted for a range of mission objectives based on a location’s chemistry, biology, or anthropogenic pollutants. Rapidly prototyped systems, like the Sipper, are very adaptable as other sampling containers or in-line  filters can be changed to meet the scientific objective. Along with changing the overall design, the Arduino can be programmed to sample based on water depth. In future iterations, samples could be triggered via remote operation, ideal for sampling water in unanticipated areas of interest. As much of the planet’s oceans remain a mystery, deploying a system for the analysis of water properties at various times and depths will help ocean researchers develop a better  understanding of remote underwater environments.
+
+### Example Abstract 2
+
+Researcher: Jonathan Nash, Hampton University 
+
+Mentors: Stace Beaulieu and Emily Peacock, Woods Hole Oceanographic Institution Presentation 
+
+Title: Quantifying the distribution of gelatinous invertebrates and their habitat conditions on the Northeast US Shelf through imagery and associated environmental data 
+
+Abstract: Gelatinous zooplankton (specifically ctenophores and medusae) are key predators within the environment. In large numbers they can cause catastrophic damage to the health of  their ecosystem due to the increased predation of zooplankton and larval fish. However, it is very  difficult to assess the distribution of these fragile animals using traditional means. We are using  images taken with an In Situ Ichthyoplankton Imaging System (ISIIS), a specialized underwater  camera that is towed by a research vessel, taking images at fifteen frames per second and giving  us more data than ever before to examine the distribution of fragile zooplankton. We used  multiple tows from a cruise on the R/V Endeavor in October 2020 along the NES-LTER (North  East U.S. Shelf - Long Term Ecological Research) transect, which stretches more than 100 miles  from Martha’s Vineyard to the edge of the continental shelf. Each tow was specifically selected  so that there was a sufficient amount of images to picture the distribution near-shore, mid-shelf,  and off-shore. Our goal was to see the distribution of gelatinous zooplankton near-shore, mid shelf, and off-shore past the shelf break. We identified medusae, ctenophores, and chaetognaths  in a subset of the tows, annotating 170,000 images to create a training set for a machine learning  algorithm to be used for automated classification of entire tows. Our data indicated ctenophores  and medusae were more abundant near-shore while chaetognaths were more abundant closer to  mid-shelf. In addition to the results for distribution of gelatinous zooplankton on this cruise, the  workflow can be applied to ISIIS tows conducted on other transect cruises for the NES Long Term Ecological Research (LTER) project. 
+
+### Example Abstract 3
+
+Researcher: Hector Delgadillo, California State University, Long Beach 
+
+Mentor: Jennifer Watts, Woodwell Climate Research Center 
+
+Presentation Title: Investigating the biotic and abiotic controls on soil CO2 emissions from an Alaskan boreal forest 
+
+Abstract: The earth is warming at a rate higher than previously recorded. This warming is  disproportionately affecting higher latitudes, with arctic and boreal habitats recently experiencing 0.4 °C increases per decade. These regions store very large amounts of organic carbon in  permafrost (continuously frozen soils) and seasonally frozen near-surface soils (i.e., the active  layer). As these soils thaw and warm, they can release carbon dioxide (CO2) to the atmosphere.  A pressing question is how climate warming will affect soil carbon fluxes in these forest habitats.  An increase in annual growing season length may help to sequester more carbon through  increased primary production. 
+
+Contrastingly, prolonged warming may continue to increase soil temperatures and expose more  permafrost to thaw and decomposition, resulting in higher CO2 emissions. Additionally, it is  unknown whether increases in nutrient availability, specifically nitrogen, will influence carbon  fluxes. This research analyzes a transect of 21 sites in coniferous and deciduous forest stands  within the NEON Caribou-Poker Creek research site in Interior Alaska. Soil CO2 fluxes and the  biotic and abiotic variables that influence flux were examined over the spring through mid summer (May – July) period in 2021. Through statistical analyses, we found that carbon fluxes  were significantly higher in deciduous communities. Soil temperatures increased as the season  progressed, leading to higher CO2 loss. 
+
+Generally, lower surface moisture levels were highly correlated with higher CO2 loss. However,  soil temperature, moisture, and thaw depth were not statistically different between the two forest  stands, suggesting additional drivers of CO2 loss. To examine the influence of nitrogen on CO2 loss within the two stands, we employed the Stoichiometrically Coupled, Acclimating Microbe Plant-Soil model (SCAMPS). These results will help us better understand how ecosystem properties can influence CO2 loss in warming boreal habitats, possibly by 8°C at the end of the  century.
+
