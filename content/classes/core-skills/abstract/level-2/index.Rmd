@@ -7,6 +7,7 @@ slug: []
 categories: []
 tags: []
 draft: no
+quiz: https://classroom.google.com/c/NjgxMDE4NDM5Mzky/a/NjgxMjU4NDUxOTU3/details
 ---
 
 Your goal to complete Level 2 is to draft ypur PEP abstract. For some of you that will feel like good timing as you hone in on your final results. For others it might feel too soon as many of your results are still on their way. Either way, it's good practice to write about your research and in the case of an abstract for a scientific conference, you often write it months ahead of time and may not fully have your scientific story completed.
